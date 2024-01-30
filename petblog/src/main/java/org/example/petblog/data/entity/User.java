@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "Users")
@@ -27,14 +27,17 @@ public class User {
     @Email(message = "Email should be valid")
     private String email;
 
+    @Column
+    private String name;
+
+    @Column
+    private String lastName;
+
+
     @Column(nullable = false)
     private String passwordHash;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles = new HashSet<>();
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 }
