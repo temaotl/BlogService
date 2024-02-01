@@ -5,7 +5,6 @@ import org.example.petblog.data.repository.ArticleRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
 import java.util.Objects;
@@ -14,7 +13,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataMongoTest
-public class ArticleRepositoryRepositoryTest {
+public class ArticleRepositoryTest {
 
     @Autowired
     private ArticleRepository articleRepository;
